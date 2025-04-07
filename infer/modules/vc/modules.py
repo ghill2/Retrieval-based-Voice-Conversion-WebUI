@@ -184,7 +184,8 @@ class VC:
                 file_index = file_index2
             else:
                 file_index = ""  # 防止小白写错，自动帮他替换掉
-
+            
+            print("running pipeline")
             audio_opt = self.pipeline.pipeline(
                 self.hubert_model,
                 self.net_g,
@@ -205,6 +206,7 @@ class VC:
                 protect,
                 f0_file,
             )
+            print("finished pipeline")
             if self.tgt_sr != resample_sr >= 16000:
                 tgt_sr = resample_sr
             else:
@@ -214,11 +216,13 @@ class VC:
                 if os.path.exists(file_index)
                 else "Index not used."
             )
-            return (
+            print("vc_single completed")
+            message = (
                 "Success.\n%s\nTime:\nnpy: %.2fs, f0: %.2fs, infer: %.2fs."
                 % (index_info, *times),
                 (tgt_sr, audio_opt),
             )
+            return message
         except:
             info = traceback.format_exc()
             logger.warning(info)

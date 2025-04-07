@@ -6,7 +6,7 @@ scipy
 librosa==0.10.2
 llvmlite==0.39.0
 fairseq==0.12.2
-faiss-cpu==1.7.3
+faiss-cpu==1.7.3  # try downgrade to 1.7.0 to avoid semaphore error
 gradio==3.34.0
 Cython
 pydub>=0.25.1
