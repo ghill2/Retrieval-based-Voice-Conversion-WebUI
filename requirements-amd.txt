@@ -16,7 +16,7 @@ tensorboardX
 Jinja2>=3.1.2
 json5
 Markdown
-matplotlib>=3.7.0
+matplotlib==3.9.4  # AttributeError: 'FigureCanvasAgg' object has no attribute 'tostring_rgba'
 matplotlib-inline>=0.1.3
 praat-parselmouth>=0.4.2
 Pillow>=9.1.1
@@ -47,3 +47,8 @@ ffmpy==0.3.1
 python-dotenv>=1.0.0
 av
 torchfcpe
+
+--extra-index-url https://download.pytorch.org/whl/rocm5.6
+torch==2.2.2+rocm5.6; sys_platform == 'linux'
+torchaudio==2.2.2+rocm5.6; sys_platform == 'linux'
+torchvision==0.17.2+rocm5.6; sys_platform == 'linux'
